@@ -4,7 +4,7 @@ use std::path::PathBuf;
 use anyhow::Result;
 use clap::{Parser, ValueEnum};
 
-use treehouse::grammar::Grammar;
+use treehouse::grammar::types::Grammar;
 
 #[derive(Parser)]
 struct Cli {
