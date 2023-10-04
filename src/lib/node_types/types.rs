@@ -39,14 +39,18 @@ impl BareNode {
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(untagged)]
 pub enum NodeType {
+    // Since both of Internal's fields have defaults, serde was treating
+    // Supertype nodes as Internals and initializing `fields` and `children`
+    // with their default values. Defining Supertype before Internal so
+    // Supertype takes precedence is a temporary fix.
+    Supertype {
+        subtypes: Vec<BareNode>,
+    },
     Internal {
         #[serde(default)]
         fields: HashMap<String, Child>,
         #[serde(default)]
         children: Child,
-    },
-    Supertype {
-        subtypes: Vec<BareNode>,
     },
 }
 
