@@ -10,6 +10,7 @@ path = "src/lib/mod.rs"
 [dependencies]
 anyhow = "1.0.75"
 clap = { version = "4.4.6", features = ["derive"] }
+convert_case = "0.6.0"
 prettyplease = "0.2.15"
 proc-macro2 = { version = "1.0.67", features = ["span-locations"] }
 quote = "1.0.33"
